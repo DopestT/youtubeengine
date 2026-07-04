@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "FreeAssetUsage",
+  "type": "object",
+  "required": ["episode_id", "free_assets_required", "review_status", "assets"],
+  "properties": {
+    "episode_id": {"type": "string", "pattern": "^EP[0-9]{3,}$"},
+    "free_assets_required": {"type": "boolean"},
+    "review_status": {"type": "string", "enum": ["NO_FREE_ASSETS_REQUIRED", "GREEN", "YELLOW_REVIEW", "LICENSE_REVIEW_REQUIRED", "REJECTED"]},
+    "assets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["asset_name", "asset_type", "source_url", "license_note", "episode_timestamp", "editor_label", "safe_use_reason", "risk"],
+        "properties": {
+          "asset_name": {"type": "string"},
+          "asset_type": {"type": "string", "enum": ["SUPPORT VISUAL", "ATMOSPHERE B-ROLL", "PUBLIC-DOMAIN ARCHIVAL", "ABSTRACT VISUALIZATION", "MAP / TIMELINE GRAPHIC"]},
+          "source_url": {"type": "string"},
+          "license_note": {"type": "string"},
+          "episode_timestamp": {"type": "string"},
+          "editor_label": {"type": "string"},
+          "safe_use_reason": {"type": "string"},
+          "attribution_required": {"type": "boolean"},
+          "risk": {"type": "string", "enum": ["LOW", "MEDIUM", "HIGH"]}
+        }
+      }
+    },
+    "rejected_assets": {"type": "array"}
+  }
+}

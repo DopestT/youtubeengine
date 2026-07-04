@@ -1,0 +1,28 @@
+{
+  "episode_id": "EP001",
+  "case_slug": "traffic_stop_turns_search",
+  "current_status": "RUNWAY_ASSETS_READY",
+  "priority": "HIGH",
+  "assigned_package_folder": "EP001__traffic_stop_turns_search__RUNWAY_ASSETS_READY",
+  "raw_video_files": [
+    "EP001_raw_bodycam.mp4"
+  ],
+  "source_links": [
+    "https://example.gov/public-release/bodycam-ep001"
+  ],
+  "agency_source": "Example Police Department Public Release",
+  "incident_date": "UNKNOWN",
+  "release_date": "UNKNOWN",
+  "runtime_raw": "18:42",
+  "public_record_confidence": 8.5,
+  "copyright_reuse_risk": 2.0,
+  "privacy_risk": 5.0,
+  "viral_score": 8.4,
+  "full_episode_fit": 8.1,
+  "runway_assets_required": true,
+  "editor_assets_required": true,
+  "review_required": true,
+  "approved_to_fire": false,
+  "published_url": "",
+  "notes": "Sample queue item. Human must verify source and blur private details before approval."
+}
