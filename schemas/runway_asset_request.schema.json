@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Runway Asset Request",
+  "type": "object",
+  "required": [
+    "episode_id",
+    "asset_id",
+    "asset_type",
+    "prompt",
+    "duration_seconds",
+    "aspect_ratio",
+    "safety_note"
+  ],
+  "properties": {
+    "episode_id": {
+      "type": "string"
+    },
+    "asset_id": {
+      "type": "string"
+    },
+    "asset_type": {
+      "type": "string",
+      "enum": [
+        "TITLE_CARD",
+        "COUNTDOWN",
+        "TIMELINE",
+        "MAP_STYLE",
+        "DOCUMENT_MOTION",
+        "REDACTION_CARD",
+        "TEXTURE",
+        "TRANSITION",
+        "END_SCREEN"
+      ]
+    },
+    "prompt": {
+      "type": "string"
+    },
+    "negative_prompt": {
+      "type": "string"
+    },
+    "duration_seconds": {
+      "type": "number",
+      "minimum": 1,
+      "maximum": 20
+    },
+    "aspect_ratio": {
+      "type": "string",
+      "enum": [
+        "16:9",
+        "9:16",
+        "1:1"
+      ]
+    },
+    "editor_placement": {
+      "type": "string"
+    },
+    "safety_note": {
+      "type": "string"
+    }
+  }
+}

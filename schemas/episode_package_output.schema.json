@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Episode Package Output",
+  "type": "object",
+  "properties": {
+    "episode_id": {
+      "type": "string"
+    },
+    "files_created": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "folder_url": {
+      "type": "string"
+    },
+    "review_status": {
+      "type": "string"
+    },
+    "final_decision": {
+      "type": "string"
+    },
+    "human_review_required": {
+      "type": "boolean"
+    },
+    "upload_ready": {
+      "type": "boolean"
+    }
+  }
+}

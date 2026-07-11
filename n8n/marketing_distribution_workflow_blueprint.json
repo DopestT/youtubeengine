@@ -1,0 +1,38 @@
+{
+  "name": "The Last 60 Seconds - Marketing Distribution Workflow",
+  "version": "1.0.0",
+  "description": "Prepares review-ready marketing assets after an episode is marked APPROVED_TO_FIRE. Does not auto-publish without owner approval.",
+  "trigger": {
+    "type": "google_drive_or_webhook",
+    "condition": "episode_status == APPROVED_TO_FIRE"
+  },
+  "nodes": [
+    {"id": 1, "name": "Trigger - Approved To Fire", "type": "Google Drive Trigger or Webhook"},
+    {"id": 2, "name": "Read Episode Folder", "type": "Google Drive"},
+    {"id": 3, "name": "Read Risk Review", "type": "Google Docs/Drive"},
+    {"id": 4, "name": "Hard Stop Risk Check", "type": "IF", "stop_if": ["unclear source", "minor unblurred", "private address visible", "license plate visible", "copyrighted third-party edit", "unsupported accusation"]},
+    {"id": 5, "name": "Generate YouTube Upload Package", "type": "AI Prompt"},
+    {"id": 6, "name": "Generate Shorts Package", "type": "AI Prompt"},
+    {"id": 7, "name": "Generate TikTok/Reels Package", "type": "AI Prompt"},
+    {"id": 8, "name": "Generate Community Post", "type": "AI Prompt"},
+    {"id": 9, "name": "Generate Email Newsletter", "type": "AI Prompt"},
+    {"id": 10, "name": "Generate Sponsor Summary", "type": "AI Prompt"},
+    {"id": 11, "name": "Save Marketing Files", "type": "Google Drive"},
+    {"id": 12, "name": "Notify Owner - Ready To Fire", "type": "Email/Slack/Gmail"},
+    {"id": 13, "name": "Wait 24 Hours After Publish", "type": "Wait"},
+    {"id": 14, "name": "Collect Performance Metrics", "type": "Manual Input or YouTube Analytics API"},
+    {"id": 15, "name": "Generate Performance Review", "type": "AI Prompt"},
+    {"id": 16, "name": "Update Future Content Rules", "type": "Google Docs/Drive"}
+  ],
+  "outputs": [
+    "EP###_launch_plan.md",
+    "EP###_youtube_upload_package.md",
+    "EP###_shorts_schedule.md",
+    "EP###_tiktok_reels_package.md",
+    "EP###_community_post.md",
+    "EP###_email_newsletter.md",
+    "EP###_x_thread.md",
+    "EP###_sponsor_summary.md",
+    "EP###_performance_review.md"
+  ]
+}
