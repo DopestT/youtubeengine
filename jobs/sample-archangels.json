@@ -1,0 +1,61 @@
+{
+  "jobId": "sample-archangels",
+  "projectName": "Archangels Club",
+  "brand": "archangels-club",
+  "sourceType": "video",
+  "sourceFiles": [
+    "input/sample.mp4"
+  ],
+  "targetPlatforms": [
+    "youtube",
+    "tiktok",
+    "instagram",
+    "x",
+    "facebook"
+  ],
+  "title": "Enter the Room",
+  "description": "Replace this with the final caption and context for the finished short.",
+  "hashtags": [
+    "#Shorts"
+  ],
+  "tags": [
+    "shorts",
+    "social video"
+  ],
+  "category": "Entertainment",
+  "visibility": "private",
+  "scheduledTime": null,
+  "endCard": {
+    "enabled": true,
+    "text": "Private by Design.",
+    "position": "bottom"
+  },
+  "watermark": {
+    "enabled": true,
+    "text": "Archangels Club",
+    "position": "top-right"
+  },
+  "captions": {
+    "text": "Enter the Room",
+    "style": "luxury-archangels",
+    "burnIn": true
+  },
+  "music": {
+    "volume": 0.18
+  },
+  "voiceover": {},
+  "thumbnailFrame": 1,
+  "hookText": "Enter the Room",
+  "callToAction": "Private by Design.",
+  "render": {
+    "fps": 30,
+    "width": 1080,
+    "height": 1920,
+    "cropMode": "smart-center",
+    "normalizeAudio": true
+  },
+  "status": "pending",
+  "retryCount": 0,
+  "createdAt": "2026-07-04T05:17:17Z",
+  "updatedAt": "2026-07-04T05:17:17Z"
+}

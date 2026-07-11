@@ -1,0 +1,26 @@
+{
+  "id": "terms-and-conditions",
+  "displayName": "Terms & Conditions",
+  "tone": [
+    "satirical",
+    "vintage",
+    "sharp",
+    "silent-cartoon"
+  ],
+  "visualStyle": "Black-and-white old-film satire, title cards, film grain, gears, contracts, systems.",
+  "defaultWatermark": "Legacy Works Ventures",
+  "defaultCTA": "Read the fine print.",
+  "defaultCaptionStyle": "vintage-cartoon-title-card",
+  "defaultHashtags": [
+    "#TermsAndConditions",
+    "#Satire",
+    "#LegacyWorks"
+  ],
+  "titleRules": [
+    "Use irony and legal/contract language.",
+    "Punch up, do not drift."
+  ],
+  "safetyNotes": [
+    "Keep satire clearly transformative."
+  ]
+}

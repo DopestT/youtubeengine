@@ -1,0 +1,27 @@
+{
+  "id": "the-piker-way",
+  "displayName": "The Piker Way",
+  "tone": [
+    "political stream clip",
+    "fan-made",
+    "context-first",
+    "fast commentary"
+  ],
+  "visualStyle": "Unofficial fan-made stream clip format with clear context labels.",
+  "defaultWatermark": "The Piker Way - Unofficial Fan Made",
+  "defaultCTA": "Watch the full context.",
+  "defaultCaptionStyle": "political-satire",
+  "defaultHashtags": [
+    "#ThePikerWay",
+    "#Politics",
+    "#StreamClips"
+  ],
+  "titleRules": [
+    "Label as unofficial fan-made.",
+    "Avoid claiming endorsement."
+  ],
+  "safetyNotes": [
+    "Use visible unofficial/fan-made labeling.",
+    "Do not imply official endorsement."
+  ]
+}

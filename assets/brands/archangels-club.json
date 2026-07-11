@@ -1,0 +1,26 @@
+{
+  "id": "archangels-club",
+  "displayName": "Archangels Club",
+  "tone": [
+    "premium",
+    "private",
+    "luxury",
+    "high-status"
+  ],
+  "visualStyle": "Black/gold, glass, intimate live-room energy, creator-first polish.",
+  "defaultWatermark": "Archangels Club",
+  "defaultCTA": "Enter the Room.",
+  "defaultCaptionStyle": "luxury-archangels",
+  "defaultHashtags": [
+    "#ArchangelsClub",
+    "#LiveRooms",
+    "#PrivateByDesign"
+  ],
+  "titleRules": [
+    "Make it feel exclusive.",
+    "Keep it short and premium."
+  ],
+  "safetyNotes": [
+    "Respect adult-gating and creator safety."
+  ]
+}

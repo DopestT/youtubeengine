@@ -1,0 +1,28 @@
+{
+  "name": "youtubeengine",
+  "version": "1.0.0",
+  "description": "Production-grade local YouTube Shorts and social video packaging engine for Legacy Works Ventures brands.",
+  "type": "module",
+  "private": true,
+  "bin": {
+    "youtubeengine": "dist/cli/index.js"
+  },
+  "scripts": {
+    "dev": "tsx src/cli/index.ts",
+    "build": "tsc -p tsconfig.json",
+    "process": "node dist/cli/index.js process",
+    "process:job": "node dist/cli/index.js process --job",
+    "validate": "node dist/cli/index.js validate",
+    "sample": "node dist/cli/index.js sample",
+    "clean": "node dist/cli/index.js clean",
+    "status": "node dist/cli/index.js status"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  }
+}

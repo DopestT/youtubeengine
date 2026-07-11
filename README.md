@@ -1,199 +1,175 @@
-# The Last 60 Seconds — YouTube Engine
+# YouTube Engine
 
-This repo is the operating system for **The Last 60 Seconds**, a 10-minute YouTube crime/bodycam/public-record breakdown channel.
+A production-minded local engine for turning raw clips, generated videos, stream clips, music, captions, and brand rules into upload-ready YouTube Shorts and social video packages.
 
-## Core format
+Built for:
 
-Every full episode targets **10 minutes** and ends with a branded final segment:
+- Legacy Works Ventures
+- Archangels Club
+- Terms & Conditions
+- The Piker Way
+- New Majority
+- Future brands
 
-> **THE LAST 60 SECONDS**  
-> Every case comes down to the final minute.
+This is the maxed-out local production foundation. It does not upload to YouTube yet. It prepares clean video packages that n8n or a future uploader can post.
 
-## Production promise
+## What it does
 
-Raw footage and public-record material go in. A review-ready episode package comes out.
+- Reads JSON jobs from `/jobs`
+- Validates sources and settings
+- Processes video with ffmpeg
+- Exports 9:16 platform-ready MP4s
+- Burns captions when provided
+- Adds hook/CTA text overlays
+- Generates thumbnails
+- Generates metadata and social post copy
+- Tracks status in `/output/status.json`
+- Logs to `/logs/engine.log`
+- Provides scaffolds for YouTube API, AI hooks, and n8n
 
-The engine produces:
+## Requirements
 
-- source tracking
-- public-record confidence scoring
-- copyright/reuse risk flags
-- privacy/compliance risk review
-- viral potential scoring
-- 10-minute episode suitability scoring
-- full 10-minute script
-- voiceover script
-- timestamped captions
-- graphics direction
-- editor notes
-- title package
-- thumbnail concepts
-- YouTube metadata
-- TikTok/Instagram packages
-- Shorts cutdowns
-- human review checklist
+- Node.js 20+
+- ffmpeg installed and available as `ffmpeg`
+- ffprobe optional for future inspection
 
-## Human approval rule
+Check ffmpeg:
 
-This engine is **auto-produce, human-approve**.
-
-It must not auto-publish without review. Bodycam/crime footage can include minors, victims, private addresses, medical emergencies, ongoing investigations, and unclear allegations. The system flags risk; a human makes the final call.
-
-## Repo map
-
-```text
-/docs
-  01_complete_operating_plan.md
-  02_n8n_workflow_plan.md
-  03_episode_scorecard_schema.md
-  04_first_10_episode_launch_checklist.md
-  05_weekly_improvement_loop.md
-
-/prompts
-  01_master_episode_producer.md
-  02_intake_and_scoring.md
-  03_script_writer.md
-  04_graphics_and_editor_notes.md
-  05_title_thumbnail_metadata.md
-  06_compliance_review.md
-  07_final_60_seconds.md
-
-/schemas
-  intake_payload.schema.json
-  episode_scorecard.schema.json
-  episode_package_output.schema.json
-
-/n8n
-  the_last_60_seconds_workflow_blueprint.json
-  node_by_node_build.md
-  webhook_payload_example.json
-
-/samples
-  EP001_sample_episode_package.md
-
-/scripts
-  bootstrap_push.sh
-
-.env.example
+```bash
+ffmpeg -version
 ```
 
-## First build objective
+## Install
 
-Get to this working loop:
-
-```text
-Drop footage + source notes into intake
-→ n8n creates episode folder
-→ transcription runs
-→ AI scores the episode
-→ AI creates the package
-→ docs are saved
-→ human receives review checklist
-→ approved episodes move to edit/upload
+```bash
+npm install
+cp .env.example .env
+npm run build
 ```
 
-## Non-negotiables
-
-- Do not invent facts.
-- Do not claim guilt unless legally established.
-- Do not use third-party edited footage as if it is original source footage.
-- Blur minors, addresses, license plates, private bystanders, and sensitive details.
-- Cite official/source links in the metadata.
-- If the story cannot support 10 minutes, label it `SHORTS ONLY`.
-- If the source is risky or unclear, label it `RED` or `YELLOW`, not `GREEN`.
-
-## Current status
-
-This is the repo seed package. Push it into `DopestT/youtubeengine` and then wire n8n.
-
-
-## Episode Queue + Runway pass
-
-The v4 build adds a strict queue system so every uploaded video/source package gets a visible production label and sidecar metadata before it moves through the engine.
-
-Queue statuses:
+## Folder structure
 
 ```text
-NEW_INTAKE
-SOURCE_CHECK
-TRANSCRIBING
-SCORECARD_READY
-GREEN_FULL_EPISODE
-YELLOW_REVIEW
-RED_REJECTED
-SHORTS_ONLY
-SCRIPT_READY
-RUNWAY_ASSETS_READY
-EDITOR_READY
-REVIEW_READY
-APPROVED_TO_FIRE
-PUBLISHED
+/input                  Raw source files
+/output                 Rendered packages and status.json
+/jobs                   JSON jobs
+/assets/brands          Brand profiles
+/assets/endcards        End card assets
+/assets/watermarks      Watermark assets
+/assets/music           Music beds
+/assets/captions        Captions
+/templates              Future templates
+/logs                   Engine logs
+/src                    TypeScript source
+/docs                   Integration docs
 ```
 
-Runway is used for **abstract support visuals only**: title cards, countdowns, map-style motion, document motion, redaction cards, timelines, and transitions. It must not fabricate evidence, fake bodycam moments, or fake crime reenactments.
+## Commands
 
-## Queue + Runway + free asset branch
+```bash
+npm run sample
+npm run validate jobs/sample-legacyworks.json
+npm run process -- --job jobs/sample-legacyworks.json
+npm run status
+npm run clean
+```
 
-The latest build adds:
+CLI form after build:
+
+```bash
+node dist/cli/index.js sample
+node dist/cli/index.js validate jobs/sample-legacyworks.json
+node dist/cli/index.js process --job jobs/sample-legacyworks.json
+node dist/cli/index.js process --dry-run
+node dist/cli/index.js status
+node dist/cli/index.js clean
+```
+
+## Job format
+
+Each job supports:
+
+- jobId
+- projectName
+- brand
+- sourceType
+- sourceFiles
+- targetPlatforms
+- title
+- description
+- hashtags
+- tags
+- category
+- visibility
+- scheduledTime
+- endCard
+- watermark
+- captions
+- music
+- voiceover
+- thumbnailFrame
+- hookText
+- callToAction
+- status
+- retryCount
+- createdAt
+- updatedAt
+
+See `/jobs/sample-*.json`.
+
+## Running a sample
+
+Put a video at:
 
 ```text
-docs/07_episode_queue_and_folder_labeling.md
-docs/08_runway_visual_pipeline.md
-docs/09_review_and_fire_sop.md
-docs/10_free_media_clip_policy.md
-prompts/09_episode_queue_router.md
-prompts/10_runway_visual_director.md
-prompts/11_free_asset_selector.md
-schemas/episode_queue_item.schema.json
-schemas/runway_asset_request.schema.json
-schemas/free_asset_usage.schema.json
-n8n/drive_queue_workflow_blueprint.json
-n8n/free_media_asset_branch.md
-samples/EP001_episode_queue_item.json
-samples/EP001_runway_asset_prompts.md
-samples/EP001_free_asset_usage.md
+input/sample.mp4
 ```
 
-## Status language
+Then run:
 
-Use folder labels to control production:
+```bash
+npm run build
+node dist/cli/index.js process --job jobs/sample-legacyworks.json
+```
+
+Output appears at:
 
 ```text
-NEW_INTAKE
-SOURCE_CHECK
-TRANSCRIBING
-SCORECARD_READY
-GREEN_FULL_EPISODE
-YELLOW_REVIEW
-RED_REJECTED
-SHORTS_ONLY
-SCRIPT_READY
-RUNWAY_ASSETS_READY
-EDITOR_READY
-REVIEW_READY
-APPROVED_TO_FIRE
-PUBLISHED
+output/sample-legacyworks/youtube/
+output/sample-legacyworks/tiktok/
+output/sample-legacyworks/instagram/
+output/sample-legacyworks/x/
+output/sample-legacyworks/facebook/
 ```
 
-Only the owner can set `APPROVED_TO_FIRE`.
+Each platform folder contains:
 
-## Runway rule
+- final MP4
+- thumbnail JPG
+- metadata.json
+- upload.txt
+- hashtags.txt
+- title_variants.txt
+- description_variants.txt
 
-Runway is allowed for support visuals only: countdowns, timeline cards, document motion, maps, texture, transitions, and branded cards.
+## Roadmap
 
-Runway must not generate fake bodycam footage, fake suspects, fake victims, fake police encounters, fake weapons, fake injuries, or reenactments presented as real.
+### Phase 1: Local production engine
 
-## Free file rule
+Done in this foundation.
 
-Free/public-domain clips can be used as support visuals when applicable, but they must be labeled in the editor notes and reviewed before publishing. They cannot be used to fake the actual incident.
+### Phase 2: YouTube upload
 
-## Marketing automation
+Wire `src/platforms/youtube/youtubeUploader.ts` to OAuth and YouTube Data API.
 
-The repo now includes a marketing automation command file:
+### Phase 3: n8n automation
 
-```text
-/marketing/marketing_automation_command_center.md
-/n8n/marketing_distribution_workflow_blueprint.json
-```
+Use n8n to create jobs, call the CLI, watch output, and post/schedule.
 
-This prepares YouTube metadata, Shorts packages, TikTok/Reels captions, community posts, email/newsletter copy, sponsor summaries, and performance review loops after an episode is marked `APPROVED_TO_FIRE`.
+### Phase 4: AI upgrades
+
+Connect OpenAI/Whisper/ElevenLabs/Cloudinary only after local processing is stable.
+
+## Rule
+
+Do not mix this engine into Archangels Club yet. Keep it as a separate production tool.

@@ -1,0 +1,61 @@
+{
+  "jobId": "sample-newmajority",
+  "projectName": "New Majority",
+  "brand": "new-majority",
+  "sourceType": "video",
+  "sourceFiles": [
+    "input/sample.mp4"
+  ],
+  "targetPlatforms": [
+    "youtube",
+    "tiktok",
+    "instagram",
+    "x",
+    "facebook"
+  ],
+  "title": "Follow the movement",
+  "description": "Replace this with the final caption and context for the finished short.",
+  "hashtags": [
+    "#Shorts"
+  ],
+  "tags": [
+    "shorts",
+    "social video"
+  ],
+  "category": "Entertainment",
+  "visibility": "private",
+  "scheduledTime": null,
+  "endCard": {
+    "enabled": true,
+    "text": "Follow the movement.",
+    "position": "bottom"
+  },
+  "watermark": {
+    "enabled": true,
+    "text": "New Majority",
+    "position": "top-right"
+  },
+  "captions": {
+    "text": "Follow the movement",
+    "style": "urgent-news",
+    "burnIn": true
+  },
+  "music": {
+    "volume": 0.18
+  },
+  "voiceover": {},
+  "thumbnailFrame": 1,
+  "hookText": "Follow the movement",
+  "callToAction": "Follow the movement.",
+  "render": {
+    "fps": 30,
+    "width": 1080,
+    "height": 1920,
+    "cropMode": "smart-center",
+    "normalizeAudio": true
+  },
+  "status": "pending",
+  "retryCount": 0,
+  "createdAt": "2026-07-04T05:17:17Z",
+  "updatedAt": "2026-07-04T05:17:17Z"
+}

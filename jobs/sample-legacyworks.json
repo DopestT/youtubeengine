@@ -1,0 +1,61 @@
+{
+  "jobId": "sample-legacyworks",
+  "projectName": "Legacy Works Ventures",
+  "brand": "legacy-works-ventures",
+  "sourceType": "video",
+  "sourceFiles": [
+    "input/sample.mp4"
+  ],
+  "targetPlatforms": [
+    "youtube",
+    "tiktok",
+    "instagram",
+    "x",
+    "facebook"
+  ],
+  "title": "The file opens here",
+  "description": "Replace this with the final caption and context for the finished short.",
+  "hashtags": [
+    "#Shorts"
+  ],
+  "tags": [
+    "shorts",
+    "social video"
+  ],
+  "category": "Entertainment",
+  "visibility": "private",
+  "scheduledTime": null,
+  "endCard": {
+    "enabled": true,
+    "text": "Follow for the next file.",
+    "position": "bottom"
+  },
+  "watermark": {
+    "enabled": true,
+    "text": "Legacy Works Ventures",
+    "position": "top-right"
+  },
+  "captions": {
+    "text": "The file opens here",
+    "style": "documentary",
+    "burnIn": true
+  },
+  "music": {
+    "volume": 0.18
+  },
+  "voiceover": {},
+  "thumbnailFrame": 1,
+  "hookText": "The file opens here",
+  "callToAction": "Follow for the next file.",
+  "render": {
+    "fps": 30,
+    "width": 1080,
+    "height": 1920,
+    "cropMode": "smart-center",
+    "normalizeAudio": true
+  },
+  "status": "pending",
+  "retryCount": 0,
+  "createdAt": "2026-07-04T05:17:17Z",
+  "updatedAt": "2026-07-04T05:17:17Z"
+}

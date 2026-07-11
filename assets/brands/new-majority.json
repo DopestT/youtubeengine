@@ -1,0 +1,28 @@
+{
+  "id": "new-majority",
+  "displayName": "New Majority",
+  "tone": [
+    "urgent",
+    "credible",
+    "pro-labor",
+    "pro-housing",
+    "news aggregation"
+  ],
+  "visualStyle": "Clean urgent news style, strong headline, source-aware and movement-oriented.",
+  "defaultWatermark": "New Majority",
+  "defaultCTA": "Follow the movement.",
+  "defaultCaptionStyle": "urgent-news",
+  "defaultHashtags": [
+    "#NewMajority",
+    "#Labor",
+    "#Housing",
+    "#Politics"
+  ],
+  "titleRules": [
+    "Urgent but credible.",
+    "Do not overclaim."
+  ],
+  "safetyNotes": [
+    "Distinguish aggregation, opinion, and original reporting."
+  ]
+}

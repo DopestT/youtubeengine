@@ -1,0 +1,61 @@
+{
+  "jobId": "sample-pikerway",
+  "projectName": "The Piker Way",
+  "brand": "the-piker-way",
+  "sourceType": "video",
+  "sourceFiles": [
+    "input/sample.mp4"
+  ],
+  "targetPlatforms": [
+    "youtube",
+    "tiktok",
+    "instagram",
+    "x",
+    "facebook"
+  ],
+  "title": "Watch the full context",
+  "description": "Replace this with the final caption and context for the finished short.",
+  "hashtags": [
+    "#Shorts"
+  ],
+  "tags": [
+    "shorts",
+    "social video"
+  ],
+  "category": "Entertainment",
+  "visibility": "private",
+  "scheduledTime": null,
+  "endCard": {
+    "enabled": true,
+    "text": "Watch the full context.",
+    "position": "bottom"
+  },
+  "watermark": {
+    "enabled": true,
+    "text": "The Piker Way",
+    "position": "top-right"
+  },
+  "captions": {
+    "text": "Watch the full context",
+    "style": "political-satire",
+    "burnIn": true
+  },
+  "music": {
+    "volume": 0.18
+  },
+  "voiceover": {},
+  "thumbnailFrame": 1,
+  "hookText": "Watch the full context",
+  "callToAction": "Watch the full context.",
+  "render": {
+    "fps": 30,
+    "width": 1080,
+    "height": 1920,
+    "cropMode": "smart-center",
+    "normalizeAudio": true
+  },
+  "status": "pending",
+  "retryCount": 0,
+  "createdAt": "2026-07-04T05:17:17Z",
+  "updatedAt": "2026-07-04T05:17:17Z"
+}

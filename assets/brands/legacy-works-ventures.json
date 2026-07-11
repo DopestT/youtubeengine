@@ -1,0 +1,27 @@
+{
+  "id": "legacy-works-ventures",
+  "displayName": "Legacy Works Ventures",
+  "tone": [
+    "dark cinematic",
+    "serious",
+    "documentary",
+    "evidence-minded"
+  ],
+  "visualStyle": "Dark cinematic with clean text, controlled pacing, and institutional weight.",
+  "defaultWatermark": "Legacy Works Ventures",
+  "defaultCTA": "Follow for the next file.",
+  "defaultCaptionStyle": "documentary",
+  "defaultHashtags": [
+    "#LegacyWorks",
+    "#Shorts",
+    "#Documentary"
+  ],
+  "titleRules": [
+    "Lead with the file, reveal, claim, or tension.",
+    "Avoid fake certainty."
+  ],
+  "safetyNotes": [
+    "Document source context.",
+    "Avoid unsupported allegations."
+  ]
+}

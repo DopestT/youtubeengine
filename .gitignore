@@ -1,0 +1,17 @@
+node_modules/
+dist/
+.env
+.DS_Store
+logs/*.log
+output/*
+!output/.gitkeep
+input/*
+!input/.gitkeep
+assets/music/*
+!assets/music/.gitkeep
+assets/endcards/*
+!assets/endcards/.gitkeep
+assets/watermarks/*
+!assets/watermarks/.gitkeep
+assets/captions/*
+!assets/captions/.gitkeep
