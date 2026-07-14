@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "The Last 60 Seconds Intake Payload",
+  "type": "object",
+  "required": [
+    "episode_id",
+    "source_type",
+    "video_url",
+    "review_required"
+  ],
+  "properties": {
+    "episode_id": {
+      "type": "string",
+      "examples": [
+        "EP001"
+      ]
+    },
+    "case_name": {
+      "type": "string"
+    },
+    "source_type": {
+      "type": "string",
+      "enum": [
+        "official_release",
+        "public_record",
+        "foia",
+        "news_clip",
+        "third_party_repost",
+        "unknown"
+      ]
+    },
+    "video_url": {
+      "type": "string"
+    },
+    "source_url": {
+      "type": "string"
+    },
+    "agency_name": {
+      "type": "string"
+    },
+    "incident_date": {
+      "type": "string"
+    },
+    "release_date": {
+      "type": "string"
+    },
+    "location": {
+      "type": "string"
+    },
+    "platform_targets": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "style": {
+      "type": "string",
+      "default": "serious_investigative"
+    },
+    "review_required": {
+      "type": "boolean",
+      "default": true
+    },
+    "blur_required": {
+      "type": "boolean",
+      "default": true
+    },
+    "notes": {
+      "type": "string"
+    }
+  }
+}

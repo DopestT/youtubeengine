@@ -1,0 +1,88 @@
+{
+  "name": "The Last 60 Seconds - Episode Engine Blueprint",
+  "active": false,
+  "notes": "Blueprint only. Add credentials and exact node IDs inside n8n.",
+  "nodes": [
+    {
+      "name": "Trigger - Google Drive or Webhook",
+      "type": "trigger",
+      "purpose": "Start when a new source package arrives."
+    },
+    {
+      "name": "Validate Intake",
+      "type": "function",
+      "purpose": "Check required fields and assign defaults."
+    },
+    {
+      "name": "Create Episode Folder",
+      "type": "googleDrive",
+      "purpose": "Create EP### folder and subfolders."
+    },
+    {
+      "name": "Save Raw Assets",
+      "type": "googleDrive",
+      "purpose": "Copy raw footage/source notes into episode folder."
+    },
+    {
+      "name": "Extract Audio",
+      "type": "executeCommand_or_media_service",
+      "purpose": "Extract audio from video."
+    },
+    {
+      "name": "Transcribe",
+      "type": "openai_whisper_or_transcription_api",
+      "purpose": "Generate timestamped transcript."
+    },
+    {
+      "name": "AI Intake and Scoring",
+      "type": "llm",
+      "prompt_file": "prompts/02_intake_and_scoring.md"
+    },
+    {
+      "name": "Decision Router",
+      "type": "switch",
+      "routes": [
+        "GREEN",
+        "YELLOW",
+        "RED",
+        "SHORTS ONLY",
+        "NEEDS SECONDARY SOURCE"
+      ]
+    },
+    {
+      "name": "AI Master Package",
+      "type": "llm",
+      "prompt_file": "prompts/01_master_episode_producer.md"
+    },
+    {
+      "name": "AI Script Writer",
+      "type": "llm",
+      "prompt_file": "prompts/03_script_writer.md"
+    },
+    {
+      "name": "AI Graphics Notes",
+      "type": "llm",
+      "prompt_file": "prompts/04_graphics_and_editor_notes.md"
+    },
+    {
+      "name": "AI Title Thumbnail Metadata",
+      "type": "llm",
+      "prompt_file": "prompts/05_title_thumbnail_metadata.md"
+    },
+    {
+      "name": "AI Compliance Review",
+      "type": "llm",
+      "prompt_file": "prompts/06_compliance_review.md"
+    },
+    {
+      "name": "Save Output Files",
+      "type": "googleDrive",
+      "purpose": "Write markdown, txt, json, and srt outputs."
+    },
+    {
+      "name": "Notify Owner",
+      "type": "gmail_or_slack",
+      "purpose": "Send review-ready package link."
+    }
+  ]
+}

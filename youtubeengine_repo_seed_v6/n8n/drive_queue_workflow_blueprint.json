@@ -1,0 +1,121 @@
+{
+  "name": "The Last 60 Seconds - Drive Queue + Runway Prep",
+  "version": "v4-blueprint",
+  "nodes": [
+    {
+      "id": "01",
+      "name": "Google Drive Trigger - New Intake File",
+      "type": "googleDriveTrigger",
+      "purpose": "Watch /00_INCOMING_FOOTAGE for new video/source packages."
+    },
+    {
+      "id": "02",
+      "name": "Create Episode ID",
+      "type": "code",
+      "purpose": "Generate EP### and case_slug from filename or source notes."
+    },
+    {
+      "id": "03",
+      "name": "Create Episode Folder",
+      "type": "googleDrive",
+      "purpose": "Create EP###__case_slug__NEW_INTAKE in /01_EPISODE_QUEUE."
+    },
+    {
+      "id": "04",
+      "name": "Attach Queue Sidecar JSON",
+      "type": "googleDrive",
+      "purpose": "Create EP###_episode_queue_item.json in the episode folder."
+    },
+    {
+      "id": "05",
+      "name": "Source Check AI",
+      "type": "llm",
+      "prompt_file": "prompts/02_intake_and_scoring.md",
+      "purpose": "Classify source confidence, copyright risk, privacy risk."
+    },
+    {
+      "id": "06",
+      "name": "Rename Folder to SOURCE_CHECK or TRANSCRIBING",
+      "type": "googleDrive",
+      "purpose": "Folder label reflects current status."
+    },
+    {
+      "id": "07",
+      "name": "Extract Audio",
+      "type": "ffmpeg/http service",
+      "purpose": "Extract audio for transcription."
+    },
+    {
+      "id": "08",
+      "name": "Transcribe",
+      "type": "whisper/transcription",
+      "purpose": "Generate timestamped transcript."
+    },
+    {
+      "id": "09",
+      "name": "Scorecard AI",
+      "type": "llm",
+      "prompt_file": "prompts/02_intake_and_scoring.md",
+      "purpose": "Generate GREEN/YELLOW/RED/SHORTS ONLY decision."
+    },
+    {
+      "id": "10",
+      "name": "IF Decision Router",
+      "type": "if/switch",
+      "purpose": "Route RED, SHORTS_ONLY, YELLOW, GREEN."
+    },
+    {
+      "id": "11",
+      "name": "Full Episode Producer",
+      "type": "llm",
+      "prompt_file": "prompts/01_master_episode_producer.md",
+      "purpose": "Generate episode package."
+    },
+    {
+      "id": "12",
+      "name": "System Architect Pass",
+      "type": "llm",
+      "prompt_file": "prompts/00_system_architect_content_engine_executive.md",
+      "purpose": "Retention optimize metadata, script, timeline, dependencies."
+    },
+    {
+      "id": "13",
+      "name": "Runway Visual Director",
+      "type": "llm",
+      "prompt_file": "prompts/10_runway_visual_director.md",
+      "purpose": "Generate safe Runway asset prompts only."
+    },
+    {
+      "id": "14",
+      "name": "Save Package Files",
+      "type": "googleDrive",
+      "purpose": "Save script, captions, graphics, metadata, review checklist, Runway prompts."
+    },
+    {
+      "id": "15",
+      "name": "Rename Folder to RUNWAY_ASSETS_READY or REVIEW_READY",
+      "type": "googleDrive",
+      "purpose": "Keep folder label synced with queue status."
+    },
+    {
+      "id": "16",
+      "name": "Notify Owner",
+      "type": "email/slack/gmail",
+      "purpose": "Send review-ready notification. Human approval required."
+    }
+  ],
+  "human_approval_gate": "No node may set APPROVED_TO_FIRE automatically. That status requires owner confirmation.",
+  "status_flow": [
+    "NEW_INTAKE",
+    "SOURCE_CHECK",
+    "TRANSCRIBING",
+    "SCORECARD_READY",
+    "GREEN_FULL_EPISODE",
+    "SCRIPT_READY",
+    "RUNWAY_ASSETS_READY",
+    "EDITOR_READY",
+    "REVIEW_READY",
+    "APPROVED_TO_FIRE",
+    "PUBLISHED"
+  ]
+}

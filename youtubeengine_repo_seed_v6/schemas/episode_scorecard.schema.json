@@ -1,0 +1,93 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Episode Scorecard",
+  "type": "object",
+  "required": [
+    "episode_id",
+    "viral_potential_score",
+    "ten_minute_fit_score",
+    "privacy_risk_score",
+    "final_decision"
+  ],
+  "properties": {
+    "episode_id": {
+      "type": "string"
+    },
+    "case_name": {
+      "type": "string"
+    },
+    "source_confidence_score": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 10
+    },
+    "copyright_reuse_risk_score": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 10
+    },
+    "privacy_risk_score": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 10
+    },
+    "viral_potential_score": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 10
+    },
+    "ten_minute_fit_score": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 10
+    },
+    "final_decision": {
+      "type": "string",
+      "enum": [
+        "GREEN",
+        "YELLOW",
+        "RED",
+        "SHORTS ONLY",
+        "NEEDS SECONDARY SOURCE"
+      ]
+    },
+    "risk_flags": {
+      "type": "object",
+      "properties": {
+        "minors_visible": {
+          "type": "boolean"
+        },
+        "victim_identity_visible": {
+          "type": "boolean"
+        },
+        "addresses_visible": {
+          "type": "boolean"
+        },
+        "license_plates_visible": {
+          "type": "boolean"
+        },
+        "medical_emergency": {
+          "type": "boolean"
+        },
+        "private_bystanders": {
+          "type": "boolean"
+        },
+        "graphic_injury": {
+          "type": "boolean"
+        },
+        "unclear_legal_status": {
+          "type": "boolean"
+        },
+        "third_party_copyright_edit": {
+          "type": "boolean"
+        }
+      }
+    },
+    "recommended_actions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

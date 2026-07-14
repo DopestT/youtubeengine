@@ -1,0 +1,21 @@
+{
+  "episode_id": "EP001",
+  "case_name": "Example Case Name",
+  "source_type": "official_release",
+  "video_url": "https://drive.google.com/file/d/example",
+  "source_url": "https://agency.gov/example-release",
+  "agency_name": "Example Police Department",
+  "incident_date": "unknown",
+  "release_date": "unknown",
+  "location": "City, State",
+  "platform_targets": [
+    "youtube",
+    "youtube_shorts",
+    "tiktok",
+    "instagram_reels"
+  ],
+  "style": "serious_investigative",
+  "review_required": true,
+  "blur_required": true,
+  "notes": "Add known facts here. Do not invent missing details."
+}
